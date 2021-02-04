@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react';
 
+// Firebase config
+
+import { firebaseConfig } from './firebaseConfig';
+
 // Project Components
 
 import Navbar from './components/Navbar';
@@ -25,17 +29,6 @@ import 'firebase/auth';
 import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-// Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyBz1OC5jxn0X7DGnMQ2l5UScor6YJHu3BY",
-  authDomain: "tradetracker-3e218.firebaseapp.com",
-  projectId: "tradetracker-3e218",
-  storageBucket: "tradetracker-3e218.appspot.com",
-  messagingSenderId: "322748434766",
-  appId: "1:322748434766:web:593bb92964707431bef61f",
-  measurementId: "G-BKB3HRR8CC"
-};
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
