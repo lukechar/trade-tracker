@@ -1,4 +1,4 @@
-# Trade Tracker App (in-progress!)
+# Trade Tracker App (in-progress)
 
 A stock/options Trade Tracker app that utilizes Firestore for database operations and Firebase auth for the user management system.
 
