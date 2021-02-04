@@ -13,3 +13,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.trade-icon {
+  cursor: pointer;
+}
+
+/* 
+.edit-trade-icon {
+}
+
+.close-trade-icon {
+} */

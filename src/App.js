@@ -1,7 +1,13 @@
+// React
+
+import React, { useState } from 'react';
+
 // Project Components
 
 import Navbar from './components/Navbar';
 import Trades from './components/Trades';
+import EditTrade from './components/EditTrade';
+import NewTrade from './components/NewTrade';
 
 // CSS Stylesheets
 
@@ -19,7 +25,6 @@ import 'firebase/auth';
 import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-
 
 // Firebase configuration
 var firebaseConfig = {
@@ -42,11 +47,21 @@ function App() {
 
   const [user] = useAuthState(auth);
 
+  const [action, setAction] = useState(null);
+  const [selectedTradeId, setSelectedTradeId] = useState(null);
+
   if (user) {
     return (
       <div className="App">
         <Navbar user={user} logoutFunc={logout} />
-        <Trades uid={user.uid} db={db} />
+        { 
+          (action === 'new') ? 
+          <NewTrade uid={user.uid} db={db} setAction={setAction} />
+        : (action === 'edit') ?
+          <EditTrade uid={user.uid} db={db} tradeId={selectedTradeId} />
+        :
+          <Trades uid={user.uid} db={db} setAction={setAction} setSelectedTradeId={setSelectedTradeId} />
+        }
       </div>
     );
   }
